@@ -1,0 +1,6 @@
+#compile dir
+bin/
+bin-int/
+
+#other
+.vs/

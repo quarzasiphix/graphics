@@ -1,17 +1,17 @@
 #pragma once
-#include <common.hpp>
-#include "array/array.hpp"
+#include <app.hpp>
 
 namespace vertex {
-	class Buffer {
+	class Array {
 	private:
 		unsigned int m_renderID;
 	public:
-		Buffer(const void* data, unsigned int size);
-		~Buffer();
+		Array();
+		~Array();
+
+		void addbuffer(const Buffer& vb, const Layout& layout);
 
 		void bind() const;
 		void unbind() const;
 	};
 }
-

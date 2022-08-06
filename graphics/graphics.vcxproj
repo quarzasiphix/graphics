@@ -56,6 +56,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\renderer\vertex\array\array.cpp" />
     <ClCompile Include="src\MSVCDEBUG\errorhdl.cpp" />
     <ClCompile Include="src\renderer\index\index.cpp" />
     <ClCompile Include="src\app.cpp" />
@@ -68,10 +69,12 @@
     <None Include="shaders\basic.shader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\renderer\vertex\array\array.hpp" />
     <ClInclude Include="src\MSVCDEBUG\errorhdl.hpp" />
     <ClInclude Include="src\renderer\index\index.hpp" />
     <ClInclude Include="src\app.hpp" />
     <ClInclude Include="include\opengl\opengl.hpp" />
+    <ClInclude Include="src\renderer\vertex\layout.hpp" />
     <ClInclude Include="src\shader\shader.hpp" />
     <ClInclude Include="include\common.hpp" />
     <ClInclude Include="src\log\log.hpp" />

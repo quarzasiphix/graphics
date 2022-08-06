@@ -1,19 +1,20 @@
 #include <app.hpp>
+namespace vertex {
+    Buffer::Buffer(const void* data, unsigned int size) {
+        gl(glGenBuffers(1, &m_renderID));
+        gl(glBindBuffer(GL_ARRAY_BUFFER, m_renderID));
+        gl(glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW));
+    }
 
-vertexBuffer::vertexBuffer(const void* data, unsigned int size) {
-    gl(glGenBuffers(1, &m_RenderID));
-    gl(glBindBuffer(GL_ARRAY_BUFFER, m_RenderID));
-    gl(glBufferData(GL_ARRAY_BUFFER, size, data, GL_STATIC_DRAW));
-}
+    Buffer::~Buffer() {
+        gl(glDeleteBuffers(1, &m_renderID));
+    }
 
-vertexBuffer::~vertexBuffer() {
-    gl(glDeleteBuffers(1, &m_RenderID));
-}
+    void Buffer::bind() const {
+        gl(glBindBuffer(GL_ARRAY_BUFFER, m_renderID));
+    }
 
-void vertexBuffer::bind() const{
-    gl(glBindBuffer(GL_ARRAY_BUFFER, m_RenderID));
-}
-
-void vertexBuffer::unbind() const{
-    gl(glBindBuffer(GL_ARRAY_BUFFER, 0));
+    void Buffer::unbind() const {
+        gl(glBindBuffer(GL_ARRAY_BUFFER, 0));
+    }
 }

@@ -80,6 +80,7 @@ static unsigned int CreateShader(const std::string& vertexShader, const std::str
 
     return program;
 }
+
 int main(void)
 {
     GLFWwindow* window;
@@ -107,6 +108,8 @@ int main(void)
     std::cout << glGetString(GL_VERSION) << std::endl;
 
     {
+        using namespace vertex;
+
         float positions[] = {
            -0.5f, -0.5f,
             0.5f, -0.5f,
@@ -120,14 +123,16 @@ int main(void)
         };
 
         unsigned int vao;
-        glGenVertexArrays(1, &vao);
-        glBindVertexArray(vao);
+        gl(glGenVertexArrays(1, &vao));
+        gl(glBindVertexArray(vao));
 
-        vertexBuffer vb(positions, 4 * 2 * sizeof(float));
+        Array va;
+        Buffer vb(positions, 4 * 2 * sizeof(float));
 
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
-         
+        Layout layout;
+        layout.Push<float>(2);
+        va.addbuffer(vb, layout);
+
         indexBuffer ib(indices, 6);
 
         shaderProgramSource shaderSource = parseShader("shaders/basic.shader");
@@ -138,6 +143,10 @@ int main(void)
         ASSERT(location != -1);
         gl(glUniform4f(location, 0.5, 0.0, 1.0, 1.0));
 
+        gl(glBindVertexArray(0));
+        gl(glUseProgram(0));
+        gl(glBindBuffer(GL_ARRAY_BUFFER, 0));
+        gl(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
 
         /* Loop until the user closes the window */
         while (!glfwWindowShouldClose(window))
@@ -148,8 +157,9 @@ int main(void)
             gl(glUseProgram(shader));
             gl(glUniform4f(location, 0.5, 0.0, 1.0, 1.0));
 
-            gl(glBindVertexArray(vao));
+            gl(va.bind());
             gl(ib.bind());
+
             gl(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
 
             gl(glfwSwapBuffers(window));
@@ -157,7 +167,6 @@ int main(void)
             /* Poll for and process events */
             glfwPollEvents();
         }
-
         //glDeleteProgram(shader);
     }
 

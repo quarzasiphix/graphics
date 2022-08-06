@@ -44,7 +44,7 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir)include\opengl/</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\opengl/;$(ProjectDir)include/; $(ProjectDir)src/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -56,10 +56,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\app.cpp" />
+    <ClCompile Include="src\shader\shader.cpp" />
+    <ClCompile Include="src\erhdl\errorhdl.cpp" />
+    <ClCompile Include="src\log\log.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\vertex\vertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\basic.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\app.hpp" />
+    <ClInclude Include="include\opengl\glfw3.hpp" />
+    <ClInclude Include="src\shader\shader.hpp" />
+    <ClInclude Include="src\erhdl\errorhdl.hpp" />
+    <ClInclude Include="include\common.hpp" />
+    <ClInclude Include="src\log\log.hpp" />
+    <ClInclude Include="src\vertex\vertexBuffer.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

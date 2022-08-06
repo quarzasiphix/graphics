@@ -4,5 +4,7 @@
 #include <sstream>
 #include <vector>
 
-#include "opengl/glfw3.hpp"
-
+#ifdef msvcopengl
+#include <MSVCDEBUG/errorhdl.hpp>
+#include <opengl/opengl.hpp>
+#endif // msvcopengl

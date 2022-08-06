@@ -56,24 +56,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\MSVCDEBUG\errorhdl.cpp" />
+    <ClCompile Include="src\renderer\index\index.cpp" />
     <ClCompile Include="src\app.cpp" />
     <ClCompile Include="src\shader\shader.cpp" />
-    <ClCompile Include="src\erhdl\errorhdl.cpp" />
     <ClCompile Include="src\log\log.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\vertex\vertexBuffer.cpp" />
+    <ClCompile Include="src\renderer\vertex\vertex.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\basic.shader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\MSVCDEBUG\errorhdl.hpp" />
+    <ClInclude Include="src\renderer\index\index.hpp" />
     <ClInclude Include="src\app.hpp" />
-    <ClInclude Include="include\opengl\glfw3.hpp" />
+    <ClInclude Include="include\opengl\opengl.hpp" />
     <ClInclude Include="src\shader\shader.hpp" />
-    <ClInclude Include="src\erhdl\errorhdl.hpp" />
     <ClInclude Include="include\common.hpp" />
     <ClInclude Include="src\log\log.hpp" />
-    <ClInclude Include="src\vertex\vertexBuffer.hpp" />
+    <ClInclude Include="src\renderer\vertex\vertex.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

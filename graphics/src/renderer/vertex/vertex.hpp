@@ -1,5 +1,5 @@
 #pragma once
-#include "common.hpp"
+#include <common.hpp>
 
 class vertexBuffer
 {
@@ -9,8 +9,7 @@ public:
 	vertexBuffer(const void* data, unsigned int size);
 	~vertexBuffer();
 
-	void bind();
-	void unbind();
-
+	void bind() const;
+	void unbind() const;
 };
 

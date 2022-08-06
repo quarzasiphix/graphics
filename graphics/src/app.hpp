@@ -1,5 +1,7 @@
 #pragma once
-class app
-{
+#define msvcopengl
+#include <common.hpp>
+class app{
+
 };
 

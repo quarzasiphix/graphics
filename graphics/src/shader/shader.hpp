@@ -1,6 +1,7 @@
 #pragma once
 #include "common.hpp"
 
+/*
 namespace gl {
     struct shader {
         unsigned int program,
@@ -14,14 +15,14 @@ namespace gl {
             std::string filepath;
             shaders parse(std::string filepath);
         };
-        /*struct source {
+        /struct source {
             shaders sources;
             std::string filepath;
             void parse(const std::string& filepath);
             source(std::string filepath) : filepath(filepath) {
                 parse(filepath);
             }
-        };*/
+        };
         struct compile {
             parser parser;
             int result;
@@ -42,3 +43,4 @@ namespace gl {
         };
     };
 }
+*/

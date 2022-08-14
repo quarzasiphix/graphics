@@ -12,6 +12,7 @@
     <ProjectGuid>{e354dfe1-31e6-4150-ba83-4bcf211d4d12}</ProjectGuid>
     <RootNamespace>graphics</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>renderer</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -43,7 +44,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard>stdcpp14</LanguageStandard>
       <AdditionalIncludeDirectories>$(ProjectDir)include\opengl/;$(ProjectDir)include/; $(ProjectDir)src/</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -56,6 +57,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\opengl\glwindow.cpp" />
+    <ClCompile Include="src\renderer\renderer.cpp" />
     <ClCompile Include="src\renderer\vertex\array\array.cpp" />
     <ClCompile Include="src\MSVCDEBUG\errorhdl.cpp" />
     <ClCompile Include="src\renderer\index\index.cpp" />
@@ -64,11 +67,14 @@
     <ClCompile Include="src\log\log.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\renderer\vertex\vertex.cpp" />
+    <ClCompile Include="src\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\basic.shader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\opengl\glwindow.hpp" />
+    <ClInclude Include="src\renderer\renderer.hpp" />
     <ClInclude Include="src\renderer\vertex\array\array.hpp" />
     <ClInclude Include="src\MSVCDEBUG\errorhdl.hpp" />
     <ClInclude Include="src\renderer\index\index.hpp" />
@@ -79,6 +85,7 @@
     <ClInclude Include="include\common.hpp" />
     <ClInclude Include="src\log\log.hpp" />
     <ClInclude Include="src\renderer\vertex\vertex.hpp" />
+    <ClInclude Include="src\window\window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

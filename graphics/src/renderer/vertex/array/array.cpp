@@ -9,8 +9,16 @@ namespace vertex {
         gl(glDeleteVertexArrays(1, &m_renderID));
     }
 
+    void Array::bind() const {
+        gl(glBindVertexArray(m_renderID));
+    }
+
+    void Array::unbind() const {
+        gl(glBindVertexArray(0));
+    }
+
     void Array::addbuffer(const Buffer& vb, const Layout& layout) {
-        bind();
+        this->bind();
         vb.bind();
         const auto elements = layout.m_elements_get();
         unsigned int offset = 0;
@@ -23,13 +31,4 @@ namespace vertex {
         }
 
     }
-
-    void Array::bind() const {
-        gl(glBindVertexArray(m_renderID));
-    }
-
-    void Array::unbind() const {
-        gl(glBindVertexArray(0));
-    }
-
 }

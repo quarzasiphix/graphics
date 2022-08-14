@@ -1,5 +1,4 @@
 #include <app.hpp>
-
 void glerclear() {
     while (glGetError() != GL_NO_ERROR);
 }

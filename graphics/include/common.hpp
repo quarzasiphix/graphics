@@ -4,6 +4,8 @@
 #include <sstream>
 #include <vector>
 
+#include <window/window.hpp>
+
 #ifdef msvcopengl
 #include <MSVCDEBUG/errorhdl.hpp>
 #include <opengl/opengl.hpp>

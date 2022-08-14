@@ -1,6 +1,5 @@
 #pragma once
-#include <app.hpp>
-
+#include <common.hpp>
 namespace vertex {
 	class Array {
 	private:
@@ -10,7 +9,7 @@ namespace vertex {
 		~Array();
 
 		void addbuffer(const Buffer& vb, const Layout& layout);
-
+	
 		void bind() const;
 		void unbind() const;
 	};

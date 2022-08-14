@@ -2,12 +2,9 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <shader/shader.hpp>
 
-
-#include <renderer/vertex/array/array.hpp>
-#include <renderer/vertex/vertex.hpp>
-#include <renderer/index/index.hpp>
-#include <renderer/vertex/layout.hpp>
+#include <renderer/renderer.hpp>
 
 
 //#include "log/log.hpp"

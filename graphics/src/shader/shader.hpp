@@ -1,5 +1,28 @@
 #pragma once
-#include "common.hpp"
+#include <common.hpp>
+class shader {
+public:
+    class basic {
+        unsigned int compile(unsigned int type, const std::string& source);
+        unsigned int create();
+    public:
+        std::string m_filepath;
+        unsigned int program;
+        struct sources {
+            std::string vertex = "vertex";
+            std::string fragment = "fragment";
+        };
+        enum class type {
+            NONE = -1,
+            VERTEX = 0,
+            FRAGMENT = 1
+        };
+        sources source;
+        basic::sources parse(std::string& source);
+        basic(std::string filepath);
+        ~basic();
+    };
+};
 
 /*
 namespace gl {
